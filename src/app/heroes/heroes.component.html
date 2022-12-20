@@ -1,0 +1,43 @@
+<h2>My Heroes</h2>
+
+<!-- isko add kiye h taki new Herop add kr sake -->
+<div>
+  <label for="new-hero">Hero name:</label>
+  <input id="new-hero" #heroName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(heroName.value);heroName.value='' ">Add Hero</button>
+
+</div>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <!-- <button type="button" (click)="onSelect(hero)" [class.selected]="selectedHero === hero">
+        click pe onselect ke under hero ja rha h bt yaha pe error dega tb ts file me onSelect ka function banao aur usme hero pass kro tb error nh dega
+    <span class="badge">{{ hero.id }}</span>
+    <span class="name">{{ hero.name }}</span>
+</button> -->
+<!-- button ko remove krke link laga denge -->
+  <a routerLink="/detail/{{hero.id}}">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </a>
+  <!-- Hero ko delete kr dega -->
+  <button type="button" class="delete" title="delete hero"
+      (click)="delete(hero)">x</button>
+  </li>
+</ul>
+
+<!-- niche wale block ko comment kiye qki is block ko ek alg component me dalenge -->
+<!-- Displaying Selected name on UI -->
+<!-- <div *ngIf="selectedHero">
+    <h2>{{selectedHero.name | uppercase}} Details</h2>
+    <div>id: {{selectedHero.id}}</div>
+    <div>
+      <label for="hero-name">Hero name: </label>
+      <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+    </div>
+  </div> -->
+
+  <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail>  -->
+  <!-- isko comment kr diye qki av routing laga rhe h hero detail ka -->
+  <!-- yaha [] ke under hero dale h qki hero-detail me inpu ke baad hero likhe the  -->

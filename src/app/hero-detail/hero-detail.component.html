@@ -1,0 +1,13 @@
+<!-- Displaying Selected name on UI -->
+<!-- jaha jaha selectedHero tha usko hero se change kiye yaha qki ts me hero se define kiye h -->
+<div *ngIf="hero">
+    <h2>{{hero.name | uppercase}} Details</h2>
+    <div>id: {{hero.id}}</div>
+    <div>
+      <label for="hero-name">Hero name: </label>
+      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+    </div>
+    <button type="button" (click)="goBack()">go back</button>
+    <!-- is button se back location pe chale jaynge -->
+    <button type="button" (click)="save()">Save</button>
+  </div>
